@@ -1,0 +1,22 @@
+{
+  "name": "kms_home_assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matanel-mor/kms_home_assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matanel-mor/kms_home_assignment/issues"
+  },
+  "homepage": "https://github.com/matanel-mor/kms_home_assignment#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1"
+  }
+}
