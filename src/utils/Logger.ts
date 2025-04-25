@@ -3,15 +3,11 @@ import path from "path";
 import moment from "moment-timezone";
 
 const currentDir = __dirname;
-
 const srcDir = path.resolve(currentDir, "..");
-
 const loggingDir = path.resolve(srcDir, "logs");
-
 const customFormat = winston.format.printf(({ level, message, timestamp }) => {
       return `${timestamp} [${level}]: ${message}`;
 });
-
 const timeZone = "Asia/Jerusalem";
 
 const logger = winston.createLogger({
