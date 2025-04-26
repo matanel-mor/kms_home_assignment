@@ -78,7 +78,7 @@ export default class BookADemoPage {
             await expect(this.jobTitleInputField).toBeVisible();
             await expect(this.jobTitleInputField).toHaveAttribute('placeholder', this.formPlaceholders.jobTitle);
             await expect(this.countryInputField).toBeVisible();
-            await expect(this.countryInputField).toHaveAttribute('placeholder', this.formPlaceholders.country);
+            await expect(this.countryInputField).toContainText(this.formPlaceholders.country);
             await expect(this.messageInputField).toBeVisible();
             await expect(this.messageInputField).toHaveAttribute('placeholder', this.formPlaceholders.message);
             await expect(this.recaptchaText).toBeVisible();
