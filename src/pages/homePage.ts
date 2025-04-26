@@ -5,6 +5,7 @@ import LighthouseUniversityPage from "./lighthouseUniversityPage";
 
 export default class HomePage {
       constructor(private page: Page) { }
+      private readonly url = `${process.env.BASE_URL}`
 
       // Selectors
       get bookADemoBtn() {
@@ -22,12 +23,7 @@ export default class HomePage {
 
       // Actions
       async navigateToHomePage() {
-            if (!process.env.BASE_URL) {
-                  logger.error("BASE_URL is not defined in the environment configuration.");
-                  throw new Error("BASE_URL is not defined in the environment configuration.");
-            }
-
-            await this.page.goto(process.env.BASE_URL, { waitUntil: "domcontentloaded" });
+            await this.page.goto(this.url, { waitUntil: "domcontentloaded" });
       };
       async clickOnBookADemoButton() {
             logger.info("Clicking on book a demo button.");
