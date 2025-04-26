@@ -1,7 +1,6 @@
 import { Page, expect } from "@playwright/test";
 import logger from "../utils/Logger";
 import { demoCostumer } from "../data/demoCostumer";
-import { de } from "@faker-js/faker";
 
 export default class BookADemoPage {
       constructor(private page: Page) { }

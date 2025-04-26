@@ -9,6 +9,9 @@ export default class HomePage {
       get bookADemoBtn() {
             return this.page.getByRole("banner").getByRole("link", { name: "Book a demo" });
       };
+      get pageTitle() {
+            return this.page.locator('h1');
+      };
 
       // Actions
       async navigateToHomePage() {
@@ -25,6 +28,9 @@ export default class HomePage {
 
             const bookADemoPage = new BookADemoPage(this.page);
             return bookADemoPage;
+      };
+      async getPageTitleFontSize() {
+            return this.pageTitle.evaluate(el => window.getComputedStyle(el).fontSize);
       };
 
       // Assertions
