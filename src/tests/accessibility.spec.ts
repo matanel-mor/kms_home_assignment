@@ -17,7 +17,7 @@ test('Accessibility test - Check accessibility toggles default state', async ({ 
       await accessibilityPage.assertDefaultStateOfAccessibilityToggles();
 });
 
-test.only('Accessibility test - Increase font size and restore to default', async ({ page }) => {
+test('Accessibility test - Increase font size and restore to default', async ({ page }) => {
       logger.info("------Starting increase font size test-------");
 
       const accessibilityPage = new AccessibilityPage(page);
