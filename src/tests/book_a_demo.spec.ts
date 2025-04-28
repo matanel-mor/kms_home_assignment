@@ -11,7 +11,7 @@ test("Navigate to Book a demo page and assert the form fields", async ({ page })
       await homePage.assertBookADemoButtonIsVisible();
 
       // Page transition to Book a demo page
-      const bookADemoPage = await homePage.clickOnBookADemoButton();
+      const bookADemoPage = await homePage.navigateToBookADemoPage();
       await bookADemoPage.assertNavigationToBookADemoPage();
       await bookADemoPage.assertDemoFormFieldsAreVisible();
       await bookADemoPage.fillDemoForm();

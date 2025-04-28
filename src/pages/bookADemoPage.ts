@@ -50,6 +50,7 @@ export default class BookADemoPage {
 
       // Actions
       async fillDemoForm() {
+            logger.info("Filling booking demo form.");
             await this.firstNameInputField.fill(demoCostumer.firstName);
             await this.lastNameInputField.fill(demoCostumer.lastName);
             await this.emailInputField.fill(demoCostumer.email);
@@ -57,6 +58,7 @@ export default class BookADemoPage {
             await this.jobTitleInputField.fill(demoCostumer.jobTitle);
             await this.countryInputField.selectOption(demoCostumer.country);
             await this.messageInputField.fill(demoCostumer.message);
+            logger.info("Filled booking demo form.");
       };
 
       // Assertions

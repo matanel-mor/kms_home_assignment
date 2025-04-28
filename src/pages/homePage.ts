@@ -29,23 +29,30 @@ export default class HomePage {
       async navigateToHomePage() {
             await this.page.goto(this.url, { waitUntil: "domcontentloaded" });
       };
-      async clickOnBookADemoButton() {
+      async clickOnBookADemoBtn() {
             logger.info("Clicking on book a demo button.");
             await this.bookADemoBtn.click();
-
-            const bookADemoPage = new BookADemoPage(this.page);
-            return bookADemoPage;
       };
       async getPageTitleFontSize() {
             return this.pageTitle.evaluate(el => window.getComputedStyle(el).fontSize);
       };
       async ClickOnAboutBtn() {
+            logger.info("Clicking on about button.");
             await this.aboutBtn.click();
       };
       async ClickOnLightHouseUniversityBtn() {
+            logger.info("Clicking on lighthouse university button.");
             await this.lightHouseUniversityBtn.click();
       };
+      async navigateToBookADemoPage() {
+            logger.info("Navigating to book a demo page.");
+            await this.clickOnBookADemoBtn();
+
+            const bookADemoPage = new BookADemoPage(this.page);
+            return bookADemoPage;
+      };
       async navigateToKMSUniversityPage() {
+            logger.info("Navigating to lighthouse university page.");
             await this.ClickOnAboutBtn();
             await this.ClickOnLightHouseUniversityBtn();
 
@@ -53,6 +60,7 @@ export default class HomePage {
             return lightHouseUniversityPage;
       };
       async navigateToTermsAndPrivacyPolicyPage() {
+            logger.info("Navigating to terms and privacy policy page.");
             await this.assertTermsAndPrivacyPolicyLinkIsVisible();
             await this.termsAndPrivacyPolicyLink.click();
 
@@ -67,6 +75,9 @@ export default class HomePage {
       };
       async assertBookADemoButtonIsVisible() {
             await expect(this.bookADemoBtn).toBeVisible();
+            await expect(this.bookADemoBtn).toHaveText("Book a demo");
+            await expect(this.bookADemoBtn).toBeEnabled();
+            logger.info("Book a demo button is visible and enabled.");
       };
       async assertTermsAndPrivacyPolicyLinkIsVisible() {
             await expect(this.termsAndPrivacyPolicyLink).toBeVisible();
