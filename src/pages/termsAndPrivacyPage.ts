@@ -18,5 +18,6 @@ export default class TermsAndPrivacyPage {
       async assertTermsAndPrivacyPolicyTitle() {
             await expect(this.termsAndPrivacyTitle).toBeVisible();
             await expect(this.termsAndPrivacyTitle).toHaveText(termsAndPrivacyPageData.title);
+            logger.info("Terms and privacy policy title is visible.");
       };
 };

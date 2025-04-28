@@ -40,17 +40,20 @@ export default class LighthouseUniversityPage {
 
       // Actions
       async selectRandomCertificationCard() {
+            logger.info("Selecting random certification card.");
             const cards = await this.certificationsCardsApplyButtons.all();
             const randomIndex = Math.floor(Math.random() * cards.length);
             await cards[randomIndex].click();
       };
       async fillCertificateForm() {
+            logger.info("Filling certificate form.");
             await this.formFirstNameInputField.fill(certificateCostumer.firstName);
             await this.formLastNameInputField.fill(certificateCostumer.lastName);
             await this.formEmailInputField.fill(certificateCostumer.email);
             await this.formPhoneNumberInputField.fill(certificateCostumer.phoneNumber);
             await this.formCompanyNameInputField.fill(certificateCostumer.companyName);
             await this.formMessageInputField.fill(certificateCostumer.message);
+            logger.info("Filled certificate form.");
       };
 
       // Assertions
