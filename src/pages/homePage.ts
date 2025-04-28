@@ -2,6 +2,7 @@ import { Page, expect } from "@playwright/test";
 import logger from "../utils/Logger";
 import BookADemoPage from "./bookADemoPage";
 import LighthouseUniversityPage from "./lighthouseUniversityPage";
+import TermsAndPrivacyPage from "./termsAndPrivacyPage";
 
 export default class HomePage {
       constructor(private page: Page) { }
@@ -19,6 +20,9 @@ export default class HomePage {
       };
       get lightHouseUniversityBtn() {
             return this.page.getByRole('link', { name: 'Lighthouse University' });
+      };
+      get termsAndPrivacyPolicyLink() {
+            return this.page.locator('a > span', { hasText: 'Terms and Privacy Policy' });
       };
 
       // Actions
@@ -48,6 +52,13 @@ export default class HomePage {
             const lightHouseUniversityPage = new LighthouseUniversityPage(this.page);
             return lightHouseUniversityPage;
       };
+      async navigateToTermsAndPrivacyPolicyPage() {
+            await this.assertTermsAndPrivacyPolicyLinkIsVisible();
+            await this.termsAndPrivacyPolicyLink.click();
+
+            const termsAndPrivacyPolicyPage = new TermsAndPrivacyPage(this.page);
+            return termsAndPrivacyPolicyPage;
+      };
 
       // Assertions
       async assertNavigationToHomePage() {
@@ -56,5 +67,9 @@ export default class HomePage {
       };
       async assertBookADemoButtonIsVisible() {
             await expect(this.bookADemoBtn).toBeVisible();
+      };
+      async assertTermsAndPrivacyPolicyLinkIsVisible() {
+            await expect(this.termsAndPrivacyPolicyLink).toBeVisible();
+            logger.info("Terms and privacy policy link is visible.");
       };
 };
