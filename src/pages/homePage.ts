@@ -75,7 +75,7 @@ export default class HomePage {
       };
       async assertBookADemoButtonIsVisible() {
             await expect(this.bookADemoBtn).toBeVisible();
-            await expect(this.bookADemoBtn).toHaveText("Book a demo");
+            await expect(this.bookADemoBtn).toHaveText("Book a Demo");
             await expect(this.bookADemoBtn).toBeEnabled();
             logger.info("Book a demo button is visible and enabled.");
       };
